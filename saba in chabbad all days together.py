@@ -34,17 +34,4 @@ for x in month:
               file1.write('\n') # new line writln ;-)
               file1.close()
               print(all_url)
-              
-
-
-# s  = HTMLSession()
-# response = s.get(url)
-# response.html.render()
-#print(response)
-
-
- 
-#print(html_str.find('חומוס'))
-
-#print(html_str)
-# prints out fully loaded page content      
+   
