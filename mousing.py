@@ -78,10 +78,11 @@ win32api.SetCursorPos((x,y))
 t_end = time.time() + 5 #for 5 seconds #60 * 15 are equal to 15 min
 t_end = time.time() + 2
 while time.time() < t_end:
-    #click_left(500,500) # in order to save te calls, and make it even more faster
+    #click_left(500,500) # in order to save the calls, and make it even more faster
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,x,y,0,0)
+    #time.sleep(.01) #reacing that way only 70 CPS in max
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x,y,0,0)
-    j+=1 # it seems that this section not influancing the score
+    #j+=1 # it seems that this section not influencing the score
 #push_button()
 
 # F11 existing full screen #
