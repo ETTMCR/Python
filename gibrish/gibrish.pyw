@@ -87,7 +87,29 @@ def on_going():
             elif char == "'":
                 key = key +  ","  
             elif char == "_":
-                key = key +  "_"                  
+                key = key +  "_"  
+            elif char == "1":
+                key = key +  "1"    
+            elif char == "2":
+                key = key +  "2"                          
+            elif char == "3":
+                key = key +  "3"   
+            elif char == "4":
+                key = key +  "4"  
+            elif char == "5":
+                key = key +  "5"   
+            elif char == "6":
+                key = key +  "6"    
+            elif char == "7":
+                key = key +  "7"                          
+            elif char == "8":
+                key = key +  "8"   
+            elif char == "9":
+                key = key +  "9"  
+            elif char == "0":
+                key = key +  "0"                   
+            elif char == "-":
+                 key = key +  "-"                    
             # elif char == "_":
             #     key = key +  "_"                   
             else:
