@@ -4,14 +4,11 @@ Created on Sun May  8 10:04:26 2022
 
 @author: 1
 """
-# true=1
-# while true==1:
-#while(True):   
+
 def on_going():
     
     def check(char):
         global key
-        key ='ש'
         key =''
         # key = key.encode('utf-8')
         # print(type(key))
@@ -97,14 +94,9 @@ def on_going():
                 return "Unknown status code"
        
     from pynput.keyboard import Key, Controller
-    
     keyboard = Controller()
     
     import win32clipboard
-    
-    #set clipboard data
-    
-    
     # get clipboard data
     win32clipboard.OpenClipboard()
     copied = win32clipboard.GetClipboardData()
