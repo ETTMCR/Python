@@ -1,1 +1,2 @@
 ![The yellow squares are the areas which the bot scan](https://github.com/ETTMCR/Python/blob/main/BB%20NOT%20NN/screen%20master%20BB%20-%20Copy.png)
+![Juipter IDE and the command prompt outputting the game environment ](https://github.com/ETTMCR/Python/blob/main/BB%20NOT%20NN/record only snai and car.png)
