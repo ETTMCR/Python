@@ -78,7 +78,7 @@ def on_going():
                 key = key +  " "    
             elif char == "/":
                 key = key +  "."  
-            elif char == ";":
+            elif char == ";": 
                 key = key +  "ף"    
             elif char == ",":
                 key = key +  "ת"                          
@@ -109,16 +109,46 @@ def on_going():
             elif char == "0":
                 key = key +  "0"                   
             elif char == "-":
-                 key = key +  "-"                   
+                 key = key +  "-"  
+            elif char == "!":
+                key = key +  "!"    
+            elif char == "@":
+                key = key +  "@"                          
+            elif char == "#":
+                key = key +  "#"   
+            elif char == "$":
+                key = key +  "$"  
+            elif char == "%":
+                key = key +  "%"   
+            elif char == "^":
+                key = key +  "^"    
+            elif char == "&":
+                key = key +  "&"                          
+            elif char == "*":
+                key = key +  "*"   
+            elif char == '(':
+                key = key +  '(' 
+            elif char == ')':
+                key = key +  ')'  
+            elif char == '"':
+                 key = key +  '"' 
+            elif char == '=':
+                 key = key +  '='                  
+            elif char == '+':
+                 key = key +  '+'                  
+            elif char == ':':
+                 key = key +  ':'                    
+            # elif char == "\":
+            #      key = key +  "\" 
             else:
                 return "Unknown status code"
-       
-    from pynput.keyboard import Key, Controller
-    keyboard = Controller()
+         
     
-    import win32clipboard
-    
-    # get clipboard data
+    # copy marked string  # doesn't work while windows app mode
+    shell.sendkeys('^c') # you just need to mark the word, and call the keyshort
+    time.sleep(.25)
+
+   # get clipboard data     
     win32clipboard.OpenClipboard()
     copied = win32clipboard.GetClipboardData()
     win32clipboard.CloseClipboard()
@@ -134,15 +164,41 @@ def on_going():
     win32clipboard.SetClipboardText(key, win32clipboard.CF_UNICODETEXT) #https://geeksqa.com/python-win32clipboard-not-working-for-unicode-characters
     #win32clipboard.SetClipboardText((key))
     
+    
     win32clipboard.CloseClipboard()
     #print (key)
     
-    with keyboard.pressed(Key.ctrl.value): # ctrl+v to paste
-        keyboard.press('v')
-        keyboard.release('v')
+    # to set focus to the last window, whom the copy string was taken from
+    # win32gui.ShowWindow(window_hwnd,5)
+    # win32gui.SetForegroundWindow(window_hwnd) #To make last focused app windows active:
+    # win32gui.SetActiveWindow(window_hwnd) 
+
+# ctrl+v to paste     # doesn't work while windows app mode, because the window  focus was lost
+    time.sleep(0.25)
+    shell.sendkeys('^v') 
         
     import winsound
     frequency = 2500  # Set Frequency To 2500 Hertz
     duration = 100  # Set Duration To 1000 ms == 1 second
     winsound.Beep(frequency, duration)
+    
+
+    
+import win32clipboard
+#import time import time import time import time 
+import time
+import win32com.client
+shell = win32com.client.Dispatch("WScript.Shell") 
+# import win32gui
+# window_hwnd = win32gui.GetForegroundWindow() # this will return a number(the hwnd of active window when it is running)
+
+# change languge # # doesn't work
+import py_win_keyboard_layout 
+## https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/available-language-packs-for-windows?view=windows-11
+# English
+#py_win_keyboard_layout.change_foreground_window_keyboard_layout(0x04090409) 
+# Hebrew
+py_win_keyboard_layout.change_foreground_window_keyboard_layout(-264436723)  # to switch to Heb
+ 
+    
 on_going() 
