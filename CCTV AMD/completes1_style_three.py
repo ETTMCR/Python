@@ -1,32 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 15 01:38:20 2022
 
-@author: 1
-"""
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jul 13 02:14:55 2022
-
-@author: 1
-"""
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jul 12 12:56:00 2022
-
-@author: 1
-"""
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jul 12 00:10:26 2022
-
-@author: 1
-"""
 # -*- coding: utf-8 -*-
 
-
-
-    
 import tkinter.messagebox
 def def_about():
     tkinter.messagebox.showinfo("ABOUT", "I dedicate this software to my DAD. \nMy DAD is suffer from AMD, Age-related Macular Degeneration.\
@@ -243,7 +217,7 @@ def def_save():
     # print (saved)
     # if saved :
 
-    #     # my_scale1.grid() #  seeing the canvas again
+    #     # my_scale1.grid() #  showing the canvas again
     #     # my_scale1.grid(row=0,column=0, sticky=NE)  
     #     saved = False
         
