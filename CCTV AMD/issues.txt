@@ -1,0 +1,22 @@
+** CCTV AMD - fix flipping
+
+control panel for changing brightness contrast etc.
+
+** cv2.waitKey(1)
+doesn't work.
+also to make shorts for the buttons.
+
+** source webcam option
+mostly for using laptop, you need the option to pick up the webcam you want. apparently it won't be the "docked" one.
+
+
+** add label zoom size
+
+** "+" slidebars
+the "+" slidebars to be bigger.
+
+** open folder
+shutdown the app when using open folder via cam in ON.
+
+** scalebar + save frame
+a way to tackle the "double clicking bug", in order to : hide my_scale1 --> save frame --> unhide my_scale1 on the capture_Canvas.
