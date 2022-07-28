@@ -1,9 +1,6 @@
-
-# -*- coding: utf-8 -*-
-
 import tkinter.messagebox
 def def_about():
-    tkinter.messagebox.showinfo("ABOUT", "I dedicate this software to my DAD. \nMy DAD is suffer from AMD, Age-related Macular Degeneration.\
+    tkinter.messagebox.showinfo("ABOUT", "I dedicate this software for patients suffering from AMD, Age-related Macular Degeneration.\
                                 \n AMD is the first cuase for vision impairment in the developed countries.\
                                     \n With Regards and may we all have a good health, and look for good in any creature. \
                                         \n Eliran Tal - elirantal1985@gmail.com ")   
@@ -20,15 +17,11 @@ def def_exitme():
         return
                                         
 import subprocess  
-# def run_again(cmd):
-#     subprocess.call(["bash", "-c", "source ~/.profile; " + cmd]) 
-    
 import os as os
 import sys
 def def_reset_all():
     cam.release()
     ikkuna.destroy()
-    #def_exitme()
     subprocess.call([sys.executable, os.path.realpath(__file__)] + sys.argv[1:]) #restart the program
 
 def def_keys():      
@@ -46,7 +39,6 @@ def def_keys():
             #cam.release()
             #cv2.destroyAllWindows()
             def_exitme()
-
             
         if key_stroke == 43: #43 # org ==1 
             # - key
@@ -224,7 +216,6 @@ def def_0_0():
     capture_Canvas.xview_moveto (0)
     capture_Canvas.yview_moveto (0)
 
-    
 def def_smaller ():
     global scale_count  , fx1, fy1
     if scale_count >=2 :
@@ -273,11 +264,9 @@ class DRAG_HERE:
 def def_start():
     global frame
     global cam
-
     global DO_FLIP_ONCE, flipped
     global fx, fy, fx1, fy1
-
-    
+ 
     def_changeState()
     button_0.grid_remove()
     button_1.grid(row=1,column=1, pady=10,padx=10,sticky=SW ) 
@@ -362,12 +351,6 @@ screen_width = ikkuna.winfo_screenwidth()
 screen_height = ikkuna.winfo_screenheight()
 ikkuna.geometry("{}x{}".format(screen_width, screen_height)) #, sticky='ew')) # tkinter screen window size
 ikkuna.resizable(width=0, height=0) # unsizeable
-# ikkuna.resizable(width=1, height=1) # sizeable
-
-##method 1
-#ikkuna.attributes('-fullscreen', True) # fullscreen, sizeable, but see all buttons
-
-##method 2
 ikkuna.overrideredirect(False)
 ikkuna.state('zoomed')  # fullscreen sizeable
 ikkuna.lift()
@@ -410,7 +393,7 @@ capture_Canvas['xscrollcommand'] = scrollbar_X.set
 
 # @@@@@@@@@@@@@ canvas @@@@@@@@@@@@@@@@@
 
-# @@@@@@@@@@@@@ buttons @@@@@@@@@@@@@@@@@     
+# @@@@@@@@@@@@@ buttons START @@@@@@@@@@@@@@@@@     
 from idlelib.tooltip import Hovertip
        
 height_btn=2
@@ -472,7 +455,7 @@ button_8.grid(row=1,column=2,pady=10,padx=10)
 button_8.config(height=1,width=2)
 button_8['state'] = DISABLED
 
-# @@@@@@@@@@@@@   define font   @@@@@@@@@@@@@@@@@
+# @@@@@@@@@@@@@   define font START  @@@@@@@@@@@@@@@@@
 myFont = font.Font(family='Helvetica', size=20, weight='bold')
 button_0['font'] = myFont
 button_1['font'] = myFont
@@ -484,11 +467,9 @@ button_7['font'] = myFont
 button_6['font'] = myFont
 button_8['font'] = myFont
 button_9['font'] = myFont
-# @@@@@@@@@@@@@   define font   @@@@@@@@@@@@@@@@@
+# @@@@@@@@@@@@@   define font END  @@@@@@@@@@@@@@@@@
 
-
-# @@@@@@@@@@@@@ buttons @@@@@@@@@@@@@@@@@
-
+# @@@@@@@@@@@@@ buttons END @@@@@@@@@@@@@@@@@
 my_menu = Menu(ikkuna)
 ikkuna.config(menu=my_menu)
 fileMenu = Menu(my_menu)
@@ -500,7 +481,7 @@ my_menu.add_cascade(label="File", menu=fileMenu)
 #my_menu['font'] = myFont
 fileMenu['font'] = myFont
 
-# @@@@@@@@@@@@@     Scale bar     @@@@@@@@@@@@@@@@@
+# @@@@@@@@@@@@@     Scale bar  START   @@@@@@@@@@@@@@@@@
 #my_scale1 = tkinter.Scale(capture_Canvas, from_=1, to=20, orient='horizontal',command=my_scale_bar_upd,length=200,sliderlength=40,relief='solid',
 #my_scale1 = tkinter.Scale(move_Canvas, from_=1, to=20, orient='horizontal',command=my_scale_bar_upd,length=200,sliderlength=40,relief='solid', #instead of f+ f- buttons
 my_scale1 = tkinter.Scale(ikkuna, width =50 ,from_=1, to=20, orient='horizontal',command=my_scale_bar_upd,length=200,sliderlength=40,
@@ -513,7 +494,7 @@ bd=10,fg='blue',cursor='fleur')
 my_scale1.grid(row=0,column=0, sticky=NE) 
 my_scale1['state'] = DISABLED
 my_scale1['font'] = myFont
-# @@@@@@@@@@@@@     Scale bar     @@@@@@@@@@@@@@@@@
+# @@@@@@@@@@@@@     Scale bar END  @@@@@@@@@@@@@@@@@
 
 path = "./icon/webcam magnifyer icon.ico"
 #path = "(__file__)/icon/webcam magnifyer icon.ico"
