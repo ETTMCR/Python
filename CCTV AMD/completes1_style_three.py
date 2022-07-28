@@ -8,9 +8,6 @@ def def_about():
                                     \n With Regards and may we all have a good health, and look for good in any creature. \
                                         \n Eliran Tal - elirantal1985@gmail.com ")   
 def def_exitme():
-    # import sys
-    #sys.exit()
-    
     ttl ='EXIT'
     msg = 'Do you want to exit the program ? '
     MsgBox = messagebox.askquestion (ttl,msg,icon = 'warning')
@@ -29,17 +26,10 @@ import subprocess
 import os as os
 import sys
 def def_reset_all():
-    # os.system("completes1 style two.py")
-    # os.execl(sys.executable, sys.executable, *sys.argv)
-    
-    #run_again("completes1 style two.py")
-    
     cam.release()
     ikkuna.destroy()
     #def_exitme()
     subprocess.call([sys.executable, os.path.realpath(__file__)] + sys.argv[1:]) #restart the program
-
-    
 
 def def_keys():      
         #print ( key_stroke)
@@ -89,7 +79,6 @@ def def_keys():
             #cam.release()
             #cv2.destroyAllWindows()
             def_exitme()
-
 
 global factor
 factor =  1
@@ -156,26 +145,15 @@ def def_changeState(): # disabling / enabling some buttons aregarding to video m
     else:
         button_6['state'] = NORMAL   
     
-
-
 def def_flip ():
     global  DO_FLIP_ONCE, frame,flipped
     #frame = cv2.flip(frame, 1)
     DO_FLIP_ONCE = True # change only once
-    # if flipped :
-    #     #frame = cv2.flip(frame, 0)
-    #     flipped = False
-    # else:
-    #     #frame = cv2.flip(frame, -1)
-    #     flipped = True
-    #button_4.clicked.connect(Pass)
     
 def def_open_folder(): # !!!!!!!!!!!!!!!! why it shutting down the app ?
     path =  os.getcwd()
     os.startfile(path)            
-
-
-     
+    
 def scale1_grid_forget():
     # my_scale1.grid_forget() # not seen in the canvas 
     my_scale1.grid(row=10,column=10, sticky=NE)
@@ -198,7 +176,6 @@ def def_save():
     now =  now.replace(".", '')
     now =  now.replace(" ", '')
     name = f"capture_{now}"
-    # scale1_grid_forget()
     
     try: # The try block lets you test a block of code for errors.
         # ikkuna.wm_attributes('-transparentcolor', '#ab23ff')
@@ -214,19 +191,6 @@ def def_save():
             capture_Canvas.winfo_rootx() + capture_Canvas.winfo_width() +300, #not giving the exact box of capture_Canvas
             capture_Canvas.winfo_rooty() + capture_Canvas.winfo_height() + 200 # !!!! #why ????????????
         )).save(name+'.jpg')
-    # print (saved)
-    # if saved :
-
-    #     # my_scale1.grid() #  showing the canvas again
-    #     # my_scale1.grid(row=0,column=0, sticky=NE)  
-    #     saved = False
-        
-    # else :
-    #     # my_scale1.grid(row=10,column=10, sticky=NE)
-    #     # my_scale1.grid_forget() 
-    #     saved = True
-    #     def_save()
-
     
 def def_stop(): 
     global cam
@@ -322,34 +286,11 @@ def def_start():
     #cv2.namedWindow("Experience_in_AI camera")
     cam = cv2.VideoCapture(0)
     while True:
-
-        # button_7['state'] = NORMAL #F-
-        # button_8['state'] = NORMAL #F+
         button_5['state'] = NORMAL #save
-      
-        #@@@@@@@@@@@@@@@@@@@@@@@@@@
-        #https://stackoverflow.com/questions/50870405/how-can-i-zoom-my-webcam-in-open-cv-python
-        #cv2.imshow_now('Original image', image)
-        # if mirror: 
-           # image = cv2.flip(image, 1)
-        #print (mirror)
-        #image = cv2.flip(image, 1)
-        #image = cv2.flip(image, -1)
-        #image = cv2.flip(image, 0)
-        
-
-            
-
         #global fx, fy
         ret, frame = cam.read()
         #frame = cv2.resize(frame, None, fx1, fy1, interpolation=cv2.INTER_AREA)
         frame = cv2.resize(frame, None, fx=fx1, fy=fy1, interpolation=cv2.INTER_AREA)
-        # frame = cv2.resize(frame, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA) #ORG
-        # frame = cv2.flip(frame, 1)
-        #frame = cv2.flip(frame, -1)
-        #frame = cv2.flip(frame, 0)
-        #cv2.imshow_now('Input', frame)
-
 
         if DO_FLIP_ONCE : 
             print (DO_FLIP_ONCE)
@@ -372,56 +313,15 @@ def def_start():
         img = img.resize((w*factor,h*factor))
         show_now = ImageTk.PhotoImage(img)
         id = capture_Canvas.create_image(0,0,anchor=tkinter.NW,image=show_now)
-        #capture_Canvas.moveto(id,-100,-100)
-        # ccc = capture_Canvas.create_image(0,0,anchor=tkinter.NW,image=show_now)
-        
         ikkuna.update()         
-        
-
-        # #frame= cv2.resize(frame1, (width, height))#(width*size_vid, height*size_vid))
-        # #size_vid=int(1.25)
-        # #frame= cv2.resize(frame1,(width*size_vid, height*size_vid))
-        # #frame= cv2.resize(frame1, (1920, 1080))
-        # #frame= cv2.resize(frame1, (640, 480)) # as the video camerea lifecam 30 microsoft
-        #frame= cv2.resize(frame, (800, 600)) # go well with (640, 480) camera type
-        # # frame= cv2.resize(frame, (1024,768))
 
         if not ret:
             print("failed to grab frame")
-            break
-        
-        # make canvas draggable - method 1
-        #Canvas_On() #https://stackoverflow.com/questions/18884220/moving-around-a-python-canvas-without-using-scrollbars
-        # make canvas draggable - method 2 
-        #make_draggable(capture_Canvas) # https://www.codegrepper.com/code-examples/python/Tkinter+canvas+draggable
-        
-                
-        # make canvas draggable - method 3
-        # https://www.tutorialspoint.com/how-to-move-a-tkinter-canvas-with-mouse
-        #capture_Canvas.bind("<B1-Motion>", DRAG_HERE.move) ## ??? why it doesn't work , I want that the global img will stay in the last darg_y darg_x ???
-        ikkuna.config(cursor="arrow")
-        ##capture_Canvas.after(100, movement) ## cool effect 1
-        ##capture_Canvas.moveto(img, drag_x, drag_y) ## cool effect 2
-        
-        
-        def_keys() ## ??? why it doesn't work ???
-        
-        
+            break           
+        ikkuna.config(cursor="arrow") 
+        def_keys() ## ??? why it doesn't work ???   
         #capture_Canvas.bind('<Double-Button-1>', def_fullscreen) ## ??? why it doesn't work ???
         #https://stackoverflow.com/questions/56604453/double-click-event-fires-after-every-successive-click-in-python-tkinter
-
-# def def_cng_start_stop ():
-#     global cng_start_stop,button_0 ,button_1
-#     if cng_start_stop:
-#         button_0.grid_forget()
-#         def_start()
-#         button_1.grid()
-#         cng_start_stop = False
-#     else :
-#         button_0.grid()
-#         button_1.grid_forget()
-#         cng_start_stop = True
-#         def_stop()
        
 import tkinter
 from tkinter import *
@@ -440,7 +340,6 @@ global i_frame  #for cascading frame capturing and saving
 i_frame = 1
 
 global cam , frame , show_now , img
-
 global key_stroke
 
 global flipped
@@ -459,13 +358,8 @@ cam = cv2.VideoCapture(0)
 
 ikkuna=tkinter.Tk()
 ikkuna.title("WEBCAM for visual impaired as CCTV")
-#ikkuna.geometry('640x480')
 screen_width = ikkuna.winfo_screenwidth()
 screen_height = ikkuna.winfo_screenheight()
-
-
-#As well as set its x and y location properties concatenating with "+":
-#window.geometry("{}x{}+{}+{}".format(window_width, window_height, x-coord, y-coord))
 ikkuna.geometry("{}x{}".format(screen_width, screen_height)) #, sticky='ew')) # tkinter screen window size
 ikkuna.resizable(width=0, height=0) # unsizeable
 # ikkuna.resizable(width=1, height=1) # sizeable
@@ -482,24 +376,6 @@ ikkuna.lift()
 frame=np.random.randint(0,255,[100,100,3],dtype='uint8')
 img = ImageTk.PhotoImage(Image.fromarray(frame))
 
-#message="You can see some \nclassification results \nhere after you add some intelligent  \nadditional code to your combined and handy \n tkinter & CV2 solution!"
-# message="bla"
-# board_text=tkinter.Label(ikkuna,text=message)
-# board_text.grid(row=1,column=1,pady=1,padx=10)
-
-# @@@@@@@@@@@@@ canvas @@@@@@@@@@@@@@@@@
-#capture_Canvas = tkinter.Canvas(ikkuna, bd=2, bg="blue", height=768, width=1024) # main canvas of video camera
-#capture_Canvas = tkinter.Canvas(ikkuna, bd=2, bg="blue", height=600, width=800) # main canvas of video camera
-
-# works + scrollbars 
-# capture_Canvas = tkinter.Canvas(ikkuna, bd=2, bg="blue", height=800, width=1280 ) # main canvas of video camera
-# capture_Canvas.grid( row = 0,column = 0)
-#create a scrollbar widget and set its command to the text widget
-## WORKS as + move_canvas scrolls
-
-## @@@@@@@@@@@@@@@@ capture_Canvas
-# Add a canvas in that frame
-#capture_Canvas = tkinter.Canvas(ikkuna,height=790, width=1280, bg="blue", scrollregion = "0 0 4000 4000") # goes with  #ikkuna.resizable(width=0, height=00) # 0,0 for unsizeable
 capture_Canvas = tkinter.Canvas(ikkuna,height=780, width=1280, bg="blue", scrollregion = "0 0 4000 4000")
 capture_Canvas.grid(row=0, column=0, sticky="new")
 
@@ -532,9 +408,7 @@ capture_Canvas['yscrollcommand'] = scrollbar_Y.set
 capture_Canvas['xscrollcommand'] = scrollbar_X.set
 #scrollbar_Y['state'] = DISABLED
 
-
 # @@@@@@@@@@@@@ canvas @@@@@@@@@@@@@@@@@
-
 
 # @@@@@@@@@@@@@ buttons @@@@@@@@@@@@@@@@@     
 from idlelib.tooltip import Hovertip
@@ -550,25 +424,6 @@ button_1.grid(row=2,column=1, pady=10,padx=10,sticky=SW )
 button_1.config(height=1*height_btn,width=7)
 #button_1.grid_forget
 button_1.grid_remove()
-#button_1['state'] = DISABLED
-
-
-
-# global cng_start_stop , button_0 ,button_1
-# cng_start_stop = True
-
-# button_0=tkinter.Button(button_Canvas,text="V\nStart\nV",command=def_cng_start_stop(),height=5,width=20,  bg='green', fg='#ffffff')
-# button_0.grid(row=1,column=1, pady=10,padx=10,sticky=SW ) 
-# button_0.config(height=1*height_btn,width=7)
-# myTip = Hovertip(button_0,'Begins the video.')
-
-# button_1=tkinter.Button(button_Canvas,text="X\nStop\nX",command=def_cng_start_stop(),height=5,width=20,bg='red')
-# button_1.grid(row=2,column=1, pady=10,padx=10,sticky=SW ) 
-# button_1.config(height=1*height_btn,width=7)
-# button_1['state'] = DISABLED
-
-
-
 
 button_2=tkinter.Button(button_Canvas,text="+\nbigger\n+",command=def_bigger,height=5,width=20 ,bg='yellow')
 button_2.grid(row=3,column=1, pady=10,padx=10,sticky=SW ) 
@@ -645,19 +500,6 @@ my_menu.add_cascade(label="File", menu=fileMenu)
 #my_menu['font'] = myFont
 fileMenu['font'] = myFont
 
-# @@@@@@@@@@@@@ scrollbars @@@@@@@@@@@@@@@@@
-
-#styled scrollbar help
-##https://stackoverflow.com/questions/64538934/how-to-change-the-width-of-a-tkk-scrollbar-in-a-custom-style
-##https://stackoverflow.com/questions/18598182/making-a-tkinter-scrollbar-wider
-## https://stackoverflow.com/questions/49279580/adjust-scrollbar-height-in-tkinter#:~:text=))%0A%0Amaster.mainloop()-,Now%20it%20is%20working%20properly.%20Here%20the%20complete%20code.,-from%20tkinter%20import
-##!https://www.autoscripts.net/horizontal-scrollbar-tkinter-using-grid/
-
-# capture_Canvas.config(scrollregion=capture_Canvas.bbox("all"))
-
-# @@@@@@@@@@@@@ scrollbars @@@@@@@@@@@@@@@@@
-
-
 # @@@@@@@@@@@@@     Scale bar     @@@@@@@@@@@@@@@@@
 #my_scale1 = tkinter.Scale(capture_Canvas, from_=1, to=20, orient='horizontal',command=my_scale_bar_upd,length=200,sliderlength=40,relief='solid',
 #my_scale1 = tkinter.Scale(move_Canvas, from_=1, to=20, orient='horizontal',command=my_scale_bar_upd,length=200,sliderlength=40,relief='solid', #instead of f+ f- buttons
@@ -667,7 +509,6 @@ relief='ridge',
 activebackground='red',bg='yellow',
 #sliderwidth=20, #unknown option "-sliderwidth ,sliderheight=40
 bd=10,fg='blue',cursor='fleur')
-
 
 my_scale1.grid(row=0,column=0, sticky=NE) 
 my_scale1['state'] = DISABLED
@@ -681,4 +522,3 @@ ikkuna.iconbitmap(path)
 ikkuna.protocol("WM_DELETE_WINDOW", def_exitme)
 
 ikkuna.mainloop()
-# cam.release()
