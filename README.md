@@ -9,3 +9,5 @@ apps and scripts descriptions :
 * :keyboard: type test -  beating the [Words Per minute test](https://cpstest.org/typing-speed-test/), using [selenium](https://www.selenium.dev/) [chrom driver](https://chromedriver.chromium.org/downloads).
 * final_new_method.py - automated scraping script to watch how many people visit spesific article in Wikipedia (Hebrew and English) yesterday. e.g. [my own wikipedia user page](https://pageviews.wmcloud.org/pageviews/?project=he.wikipedia.org&platform=all-access&agent=user&redirects=1&start=2022-04-28&end=2022-04-28&pages=משתמש:Eliran_t). It is a part of larger project ["the app"](https://github.com/ETTMCR/Python/tree/main/the%20app)
 * :heavy_check_mark: gibberish fix - A small script changing gibberish written in English, instead of Hebrew :israel: , and put it in the last copied clipboard :clipboard: .
+* :curly_loop: num_converter_to_123_456 - A function which converts a number into its digit ease type , e.g. 1234567890 --> 1_234_567_890.
+It returns str type, which can be converted into integer simpley by int.
