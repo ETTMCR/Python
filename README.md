@@ -1,4 +1,7 @@
 # Python
+:camera:
+:video_camera:
+:movie_camera:
 apps and scripts descriptions :
 * :video_camera: mot cam - Bringing the dumm security cameras a motion detaction option, while audio-visul alerting.
 * the app - A project :briefcase: app to manage Wikipedia watch list for specific articles.
